@@ -1,0 +1,116 @@
+
+<div class="editingarea" >
+    <div class="c_flex"><span class="c_flexible"></span></div>
+    <div class="Topictitle">添加题目</div>
+    <select  select-option ng-model="subject.typeId" ng-options=" types.id as types.realName for types in Subjects"></select>
+    &nbsp&nbsp
+    <select  ng-model="subject.departmentId" ng-options=" departs.id as departs.name for departs in subdepartments"></select>
+    &nbsp&nbsp
+    <select  ng-model="subject.topicId" ng-options=" topis.id as topis.title for topis in Topics|selectTopics: subject.departmentId"></select>
+    &nbsp&nbsp
+    <select  ng-model="subject.levelId" ng-options=" levels.id as levels.realName for levels in SubjectsLevel"></select>
+    <div class="c_editview">
+        <div class="Problem">
+            <div class="Attributetit">题目题干</div>
+            <div class="Problemcontent">
+            <textarea rows="6" cols="350" ng-model="subject.tem"></textarea>
+            </div>
+        </div>
+        <div class="Answeroptions">
+            <div class="Attributetit">答案选项<em>(通过勾选每个选项下面的框难吃时间点咳嗽打开)</em></div>
+            <div class="c_condition"><span class="icon_add"><em class="icon_r" style="float: left">添加选项</em></span></div>
+            <div class="Answercontent" ng-show="subject.typeId=='1' ">
+                <div class="Answerpart">
+                    <div class="Answerpart_left">
+                        <p>A</p><span><input type="radio" name="radio" value="0" select-option/></span>
+                    </div>
+                    <div class="Answerpart_right">
+                        <textarea rows="3" cols="40" ng-model="subject.choiceContent[0]"></textarea>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="Answerpart">
+                    <div class="Answerpart_left">
+                        <p>B</p><span><input type="radio" value="1" name="radio" select-option/></span>
+                    </div>
+                    <div class="Answerpart_right">
+                        <textarea rows="3" cols="40" ng-model="subject.choiceContent[1]"></textarea>
+
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="Answerpart">
+                    <div class="Answerpart_left">
+                        <p>C</p><span><input type="radio" value="2" name="radio" select-option/></span>
+                    </div>
+                    <div class="Answerpart_right">
+                        <textarea rows="3" cols="40" ng-model="subject.choiceContent[2]"></textarea></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="Answerpart">
+                    <div class="Answerpart_left">
+                        <p>D</p><span><input type="radio" value="3" name="radio" select-option /></span>
+                    </div>
+                    <div class="Answerpart_right">
+                        <textarea rows="3" cols="40" ng-model="subject.choiceContent[3]"></textarea>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="Answercontent" ng-show="subject.typeId=='2' ">
+                <div class="Answerpart">
+                    <div class="Answerpart_left">
+                        <p>A</p><span><input type="checkbox" name="checkbox" value="0" select-option/></span>
+                    </div>
+                    <div class="Answerpart_right">
+                        <textarea rows="3" cols="40" ng-model="subject.choiceContent[0]"></textarea>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="Answerpart">
+                    <div class="Answerpart_left">
+                        <p>B</p><span><input type="checkbox" value="1" name="checkbox" select-option/></span>
+                    </div>
+                    <div class="Answerpart_right">
+                        <textarea rows="3" cols="40" ng-model="subject.choiceContent[1]"></textarea>
+
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="Answerpart">
+                    <div class="Answerpart_left">
+                        <p>C</p><span><input type="checkbox" value="2" name="checkbox" select-option/></span>
+                    </div>
+                    <div class="Answerpart_right">
+                        <textarea rows="3" cols="40" ng-model="subject.choiceContent[2]"></textarea></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="Answerpart">
+                    <div class="Answerpart_left">
+                        <p>D</p><span><input type="checkbox" value="3" name="checkbox" select-option /></span>
+                    </div>
+                    <div class="Answerpart_right">
+                        <textarea rows="3" cols="40" ng-model="subject.choiceContent[3]"></textarea>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="Problem">
+                <div class="Attributetit">答案</div>
+                <div class="Problemcontent">
+                    <textarea cols="350" rows="4" ng-model="subject.answer"></textarea>
+                </div>
+            </div>
+            <div class="Problem">
+                <div class="Attributetit">答案解析</div>
+                <div class="Problemcontent">
+                    <textarea cols="350" rows="4" ng-model="subject.fx"></textarea>
+                </div>
+            </div>
+        <div class="btn_left">
+            <span class="btnL"><em class="btnR" ng-click="submit()">保存并继续</em></span><span class="btnL"><em class="btnR" ng-click="submitCloseAll()">保存并关闭</em></span>
+        </div>
+    </div>
+</div>
